@@ -1,9 +1,17 @@
 .page {
-background-color: #F3F3F3;
+	background-color: #f3f3f3;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
 }
 
 .page__content {
-  max-width: 1360px;
-  margin: 0auto;
-  padding: 0 20px;
+	max-width: 1360px;
+	margin: 0 auto;
+	padding: 0 40px;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	width: 100%;
+	box-sizing: border-box;
 }
