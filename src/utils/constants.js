@@ -67,8 +67,8 @@ export const defaultWeatherOptions = {
 	},
 	night: {
 		url: new URL("../assets/night/default.svg", import.meta.url).href,
-	}
-}
+	},
+};
 
 export const defaultClothingItems = [
 	{
