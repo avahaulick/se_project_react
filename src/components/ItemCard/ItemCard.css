@@ -2,8 +2,6 @@
 	width: 328px;
 	position: relative;
 	border-radius: 16px;
-	background-color: #fff;
-	padding: 20px;
 	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
@@ -11,16 +9,23 @@
 }
 
 .card__name {
-	margin: 0 0 16px 0;
+	position: absolute;
+	top: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	margin: 0;
 	font-size: 16px;
 	font-weight: 700;
 	line-height: 1.2;
 	text-align: center;
-	align-self: flex-start;
+	background-color: rgba(255, 255, 255, 0.8);
+	padding: 4px 12px;
+	border-radius: 4px;
 }
 
 .card__image {
 	width: 100%;
 	height: auto;
 	object-fit: contain;
+	border-radius: 16px;
 }
