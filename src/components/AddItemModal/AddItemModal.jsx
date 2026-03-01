@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useForm } from "../../hooks/useForm";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const AddItemModal = ({ isOpen, onAddItem, onClose, weatherData }) => {
+const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
 	const defaultValues = {
 		name: "",
 		link: "",
@@ -46,8 +46,6 @@ const AddItemModal = ({ isOpen, onAddItem, onClose, weatherData }) => {
 		}
 		if (!v.weatherType) {
 			e.weatherType = "Please select a weather type";
-		} else if (v.weatherType !== weatherData.type) {
-			e.weatherType = `Weather type must match current conditions (${weatherData.type})`;
 		}
 		return e;
 	};

@@ -53,7 +53,7 @@ function App() {
 			weather: inputValues.weatherType,
 		})
 			.then((createdItem) => {
-				setClothingItems((prev) => [...prev, normalizeItemImage(createdItem)]);
+				setClothingItems((prev) => [normalizeItemImage(createdItem), ...prev]);
 				closeActiveModal();
 			})
 			.catch(console.error);
@@ -148,7 +148,6 @@ function App() {
 						isOpen={activeModal === "add-garment"}
 						onClose={closeActiveModal}
 						onAddItem={onAddItem}
-						weatherData={weatherData}
 					/>
 					<ItemModal
 						activeModal={activeModal}
