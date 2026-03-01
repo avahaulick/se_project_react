@@ -86,3 +86,15 @@
 	line-height: 1.2;
 	color: #000;
 }
+
+.modal__delete-btn {
+	margin-top: 12px;
+	padding: 0;
+	border: none;
+	background: transparent;
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 1.2;
+	color: #ff4d00;
+	cursor: pointer;
+}

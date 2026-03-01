@@ -21,10 +21,24 @@
 
 .weather-card__image {
 	position: absolute;
-	right: 0;
+	left: 0;
 	top: 0;
 	height: 100%;
-	width: auto;
-	object-fit: contain;
-	object-position: right top;
+	width: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
+/* hover effect for weather card */
+.weather-card {
+	transition:
+		transform 0.2s ease,
+		box-shadow 0.2s ease;
+	cursor: pointer;
+}
+
+.weather-card:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+	cursor: pointer;
 }

@@ -1,47 +1,82 @@
+/* Header: space-between, correct scale, align items */
 .header {
 	display: flex;
 	align-items: center;
-	padding: 32px 0 20px;
+	justify-content: space-between; /* Ensures logo left, user info right */
+	padding: 32px 40px 20px 40px; /* Matches horizontal spacing in Figma */
+	background: #f6f6f6; /* Matches background color */
 }
 
+/* Logo: left, correct size */
 .header__logo {
 	margin-right: 24px;
-	width: auto;
+	width: 88px; /* Adjusted for Figma logo size */
 	height: 40px;
 }
 
+/* Date/location: next to logo, lighter */
 .header__date-and-location {
 	margin: 0;
-	font-size: 20px;
+	font-size: 18px; /* Slightly smaller for Figma accuracy */
 	font-weight: 700;
 	line-height: 1.2;
+	color: #000; /* Ensures text is black */
 }
 
+/* Add clothes: styled as text link */
 .header__add-clothes-btn {
-	margin: 0 20px 0 auto;
+	margin: 0 24px 0 0; /* Space between button and username */
 	background: transparent;
 	border: none;
-	font-size: 20px;
+	font-size: 18px; /* Matches Figma */
 	font-weight: 700;
 	cursor: pointer;
 	padding: 0;
+	color: #000;
+	transition: color 0.2s;
+}
+.header__add-clothes-btn:hover {
+	color: #007aff; /* Figma blue hover */
 }
 
+/* Add new clothes: styled as text link */
+.header__add-new-btn {
+	background: transparent;
+	border: none;
+	font-size: 18px;
+	font-weight: 700;
+	color: #000;
+	cursor: pointer;
+	margin-right: 16px; /* Space between button and username */
+	padding: 0;
+	transition: color 0.2s;
+}
+.header__add-new-btn:hover {
+	color: #007aff; /* Figma blue on hover */
+}
+
+/* User info: right-aligned */
 .header__user-container {
 	display: flex;
 	align-items: center;
-	gap: 12px;
+	gap: 16px; /* Matches Figma spacing */
 }
 
+/* Username: smaller, lighter */
 .header__username {
 	margin: 0;
-	font-size: 20px;
+	font-size: 18px; /* Matches Figma */
 	font-weight: 700;
 	line-height: 1.2;
+	color: #000;
 }
 
+/* Header avatar: round, right size */
 .header__avatar {
 	width: 40px;
 	height: 40px;
 	border-radius: 50%;
+	border: 2px solid #fff; /* Adds subtle border as in Figma */
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); /* Soft shadow for depth */
+	object-fit: cover;
 }
