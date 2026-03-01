@@ -17,6 +17,7 @@ const normalizeItemImage = (item) => ({
 	...item,
 	imageURL: item.imageURL ?? item.imageUrl ?? item.link ?? "",
 	link: item.link ?? item.imageURL ?? item.imageUrl ?? "",
+	weather: (item.weather ?? "").toLowerCase(),
 });
 
 function App() {
@@ -60,7 +61,7 @@ function App() {
 	};
 
 	const deleteItemHandler = (cardId) => {
-		if (!cardId) return;
+		if (cardId == null) return;
 
 		removeCard(cardId)
 			.then(() => {

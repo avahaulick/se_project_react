@@ -4,7 +4,7 @@
 	border-radius: 12px;
 	height: 80px;
 	margin-bottom: 20px;
-	overflow: visible;
+	overflow: hidden;
 }
 
 .weather-card__temp {
@@ -16,7 +16,7 @@
 	top: 20px;
 	left: 16px;
 	color: #fff;
-	z-index: 1;
+	z-index: 2;
 }
 
 .weather-card__image {
@@ -26,7 +26,10 @@
 	height: 100%;
 	width: 100%;
 	object-fit: cover;
-	object-position: center;
+	object-position: right top;
+	border-radius: inherit;
+	z-index: 1;
+	pointer-events: none;
 }
 
 /* hover effect for weather card */
