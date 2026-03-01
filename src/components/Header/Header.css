@@ -7,6 +7,17 @@
 	background: #f6f6f6; /* Matches background color */
 }
 
+.header__logo-link,
+.header__profile-link {
+	text-decoration: none;
+	color: inherit;
+}
+
+.header__profile-link {
+	display: flex;
+	align-items: center;
+}
+
 /* Logo: left, correct size */
 .header__logo {
 	margin-right: 24px;
