@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 
 import "./App.css";
-import { coordinates, APIkey } from "../../utils/constants";
+import { coordinates, apiKey } from "../../utils/constants";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
@@ -54,6 +54,8 @@ function App() {
 	const [isWeatherDataLoaded, setIsWeatherDataLoaded] = useState(false);
 	const [currentUser, setCurrentUser] = useState({});
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
+	const [isAuthSubmitting, setIsAuthSubmitting] = useState(false);
+	const [authError, setAuthError] = useState("");
 
 	const handleToggleSwitchChange = () => {
 		setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F");
@@ -69,10 +71,12 @@ function App() {
 	};
 
 	const handleRegisterClick = () => {
+		setAuthError("");
 		setActiveModal("register");
 	};
 
 	const handleLoginClick = () => {
+		setAuthError("");
 		setActiveModal("login");
 	};
 
@@ -134,6 +138,8 @@ function App() {
 	};
 
 	const handleRegister = (userData) => {
+		setIsAuthSubmitting(true);
+		setAuthError("");
 		return register(userData)
 			.then(() => authorize({ email: userData.email, password: userData.password }))
 			.then((res) => {
@@ -150,12 +156,18 @@ function App() {
 				closeActiveModal();
 			})
 			.catch((err) => {
+				setAuthError(err?.message ?? String(err));
 				console.error(err);
 				throw err;
+			})
+			.finally(() => {
+				setIsAuthSubmitting(false);
 			});
 	};
 
 	const handleLogin = (credentials) => {
+		setIsAuthSubmitting(true);
+		setAuthError("");
 		return authorize(credentials)
 			.then((res) => {
 				if (!res.token) {
@@ -171,8 +183,12 @@ function App() {
 				closeActiveModal();
 			})
 			.catch((err) => {
+				setAuthError(err?.message ?? String(err));
 				console.error(err);
 				throw err;
+			})
+			.finally(() => {
+				setIsAuthSubmitting(false);
 			});
 	};
 
@@ -202,10 +218,11 @@ function App() {
 
 	const closeActiveModal = () => {
 		setActiveModal("");
+		setAuthError("");
 	};
 
 	useEffect(() => {
-		getWeather(coordinates, APIkey)
+		getWeather(coordinates, apiKey)
 			.then((data) => {
 				const filteredData = filterWeatherData(data);
 				setWeatherData(filteredData);
@@ -318,12 +335,16 @@ function App() {
 							onClose={closeActiveModal}
 							onRegister={handleRegister}
 							onSwitchToLogin={handleLoginClick}
+							isLoading={isAuthSubmitting}
+							errorMessage={authError}
 						/>
 						<LoginModal
 							isOpen={activeModal === "login"}
 							onClose={closeActiveModal}
 							onLogin={handleLogin}
 							onSwitchToRegister={handleRegisterClick}
+							isLoading={isAuthSubmitting}
+							errorMessage={authError}
 						/>
 						<EditProfileModal
 							isOpen={activeModal === "edit-profile"}

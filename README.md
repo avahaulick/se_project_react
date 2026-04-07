@@ -48,9 +48,6 @@ npm run dev
 
 - `npm run dev` — start Vite dev server
 - `npm run dev:host` — start Vite with `--host`
-- `npm run server` — start optional local `json-server` mock data
-- `npm run dev:all` — run optional `json-server` + frontend together
-- `npm run dev:all:host` — run optional `json-server` + host-exposed frontend
 - `npm run build` — create production build
 - `npm run preview` — preview production build
 - `npm run lint` — run ESLint

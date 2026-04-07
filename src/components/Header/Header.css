@@ -50,22 +50,6 @@
 	color: #007aff; /* Figma blue hover */
 }
 
-/* Add new clothes: styled as text link */
-.header__add-new-btn {
-	background: transparent;
-	border: none;
-	font-size: 18px;
-	font-weight: 700;
-	color: #000;
-	cursor: pointer;
-	margin-right: 16px; /* Space between button and username */
-	padding: 0;
-	transition: color 0.2s;
-}
-.header__add-new-btn:hover {
-	color: #007aff; /* Figma blue on hover */
-}
-
 /* User info: right-aligned */
 .header__user-container {
 	display: flex;

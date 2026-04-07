@@ -1,7 +1,14 @@
 import { useForm } from "../../hooks/useForm";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
+function RegisterModal({
+	isOpen,
+	onClose,
+	onRegister,
+	onSwitchToLogin,
+	isLoading,
+	errorMessage,
+}) {
 	const { values, setValues, handleChange } = useForm({
 		name: "",
 		avatar: "",
@@ -21,12 +28,16 @@ function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
 	return (
 		<ModalWithForm
 			title="Sign up"
-			buttonText="Next"
+			buttonText={isLoading ? "Creating account..." : "Next"}
 			isOpen={isOpen}
 			onClose={onClose}
 			onSubmit={handleSubmit}
 			isSubmitDisabled={
-				!values.name || !values.avatar || !values.email || !values.password
+				isLoading ||
+				!values.name ||
+				!values.avatar ||
+				!values.email ||
+				!values.password
 			}
 		>
 			<label className="modal__label" htmlFor="register-email">
@@ -81,6 +92,7 @@ function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
 					required
 				/>
 			</label>
+			{errorMessage && <p className="modal__error">{errorMessage}</p>}
 			<button
 				type="button"
 				className="modal__switch"

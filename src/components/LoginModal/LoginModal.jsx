@@ -1,7 +1,14 @@
 import { useForm } from "../../hooks/useForm";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-function LoginModal({ isOpen, onClose, onLogin, onSwitchToRegister }) {
+function LoginModal({
+	isOpen,
+	onClose,
+	onLogin,
+	onSwitchToRegister,
+	isLoading,
+	errorMessage,
+}) {
 	const { values, setValues, handleChange } = useForm({
 		email: "",
 		password: "",
@@ -19,11 +26,11 @@ function LoginModal({ isOpen, onClose, onLogin, onSwitchToRegister }) {
 	return (
 		<ModalWithForm
 			title="Log in"
-			buttonText="Log in"
+			buttonText={isLoading ? "Logging in..." : "Log in"}
 			isOpen={isOpen}
 			onClose={onClose}
 			onSubmit={handleSubmit}
-			isSubmitDisabled={!values.email || !values.password}
+			isSubmitDisabled={isLoading || !values.email || !values.password}
 		>
 			<label className="modal__label" htmlFor="login-email">
 				Email
@@ -51,6 +58,7 @@ function LoginModal({ isOpen, onClose, onLogin, onSwitchToRegister }) {
 					required
 				/>
 			</label>
+			{errorMessage && <p className="modal__error">{errorMessage}</p>}
 			<button
 				type="button"
 				className="modal__switch"
