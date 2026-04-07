@@ -56,3 +56,14 @@
 	line-height: 20px;
 	margin: 0 auto;
 }
+
+.sidebar__action-btn {
+	border: none;
+	background: transparent;
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 1.2;
+	color: rgba(0, 0, 0, 0.6);
+	padding: 0;
+	cursor: pointer;
+}

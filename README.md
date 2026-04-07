@@ -1,8 +1,9 @@
 # WTWR (What to Wear?)
 
-WTWR is a React application that helps users decide what to wear based on live weather conditions. The app fetches weather data, filters clothing suggestions for current conditions, and allows users to add and delete clothing items stored on a mock API server.
+WTWR is a full-stack weather clothing app. The frontend is built with React, and it communicates with an Express + MongoDB backend for authentication, profile updates, likes, and clothing item management.
 
-Repository: https://github.com/avahaulick/se_project_react
+Frontend repository: https://github.com/avahaulick/se_project_react
+Backend repository: https://github.com/avahaulick/se_project_express
 
 Project video: https://www.loom.com/share/a14501968064462fb77d80d110610b0f
 
@@ -11,53 +12,45 @@ Project video: https://www.loom.com/share/a14501968064462fb77d80d110610b0f
 - React 18
 - React Router DOM
 - Vite
-- json-server (mock backend)
+- Express
+- MongoDB / Mongoose
 - ESLint
 - CSS
 
 ## Running the Project Locally
 
-### 1) Install dependencies
+### 1) Install frontend dependencies
 
 ```bash
 npm install
 ```
 
-### 2) Start the mock API server (port 3001)
+### 2) Start MongoDB
+
+Run your local MongoDB server (`mongod`) before starting the backend.
+
+### 3) Start backend API (port 3001)
 
 ```bash
-npm run server
-```
-
-This serves data from `db.json` at:
-
-- http://localhost:3001/items
-
-### 3) Start the frontend app (port 3000)
-
-```bash
+# in se_project_express
+npm install
 npm run dev
 ```
 
-### Optional: start both server and frontend together
+### 4) Start frontend app (port 3000)
 
 ```bash
-npm run dev:all
+# in se_project_react
+npm run dev
 ```
 
-### Optional: run both with host exposure
-
-```bash
-npm run dev:all:host
-```
-
-## Available Scripts
+## Available Frontend Scripts
 
 - `npm run dev` — start Vite dev server
 - `npm run dev:host` — start Vite with `--host`
-- `npm run server` — start json-server on port 3001
-- `npm run dev:all` — run backend + frontend together
-- `npm run dev:all:host` — run backend + host-exposed frontend
+- `npm run server` — start optional local `json-server` mock data
+- `npm run dev:all` — run optional `json-server` + frontend together
+- `npm run dev:all:host` — run optional `json-server` + host-exposed frontend
 - `npm run build` — create production build
 - `npm run preview` — preview production build
 - `npm run lint` — run ESLint

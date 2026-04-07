@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 import { useForm } from "../../hooks/useForm";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
-	const defaultValues = {
-		name: "",
-		link: "",
-		weatherType: "",
-	};
+const DEFAULT_VALUES = {
+	name: "",
+	link: "",
+	weatherType: "",
+};
 
-	const { values, setValues, handleChange } = useForm(defaultValues);
+const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
+	const { values, setValues, handleChange } = useForm(DEFAULT_VALUES);
 
 	const [errors, setErrors] = useState({});
 	const [touched, setTouched] = useState({});
@@ -25,7 +25,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
 	// when modal closes, reset everything
 	useEffect(() => {
 		if (!isOpen) {
-			setValues(defaultValues);
+			setValues(DEFAULT_VALUES);
 			setErrors({});
 			setTouched({});
 			setSubmitAttempted(false);
@@ -87,7 +87,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
 			return next;
 		});
 		// clear all form fields after submit
-		setValues(defaultValues);
+		setValues(DEFAULT_VALUES);
 		setTouched({});
 		setErrors({});
 		setSubmitAttempted(false);
