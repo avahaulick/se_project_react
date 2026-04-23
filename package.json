@@ -3,7 +3,7 @@
 	"private": true,
 	"version": "0.0.0",
 	"type": "module",
-	"homepage": "https://avahaulick.github.io/se_project_react/",
+	"homepage": "https://twighlightparadox.mooo.com",
 	"scripts": {
 		"dev": "vite --open",
 		"dev:host": "vite --open --host",
@@ -14,8 +14,7 @@
 		"build": "vite build",
 		"lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
 		"preview": "vite preview",
-		"predeploy": "npm run build",
-		"deploy": "gh-pages -d dist"
+		"deploy": "npm run build && scp -r ./dist/* romanshawn3@twighlightparadox.mooo.com:/home/romanshawn3/frontend"
 	},
 	"dependencies": {
 		"react": "^18.3.1",
