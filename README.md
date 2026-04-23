@@ -5,7 +5,7 @@ WTWR is a full-stack weather clothing app. The frontend is built with React, and
 Frontend repository: https://github.com/avahaulick/se_project_react
 Backend repository: https://github.com/avahaulick/se_project_express
 
-Project video: https://www.loom.com/share/a14501968064462fb77d80d110610b0f
+Project video: https://www.loom.com/share/0e47e6c5b3d247748b072716d590a7ce
 
 ## Technologies Used
 
